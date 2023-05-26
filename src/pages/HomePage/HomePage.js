@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import css from './HomePage.module.css';
+import { Loader } from 'components/Loader/Loader';
 const API_KEY = `5576770c01d63e1242c2c0a47f8d9a02`;
 const HomePage = () => {
   const API_URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
@@ -35,7 +36,7 @@ const HomePage = () => {
   return (
     <main>
       {isLoading ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         <Container
           maxWidth
