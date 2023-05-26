@@ -1,9 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import { ThemeProvider } from '@mui/material';
-import NavBar from './NavBar/NavBar';
 import { theme } from 'utils/palette';
+import { NavBar } from './NavBar/NavBar';
 import { Loader } from './Loader/Loader';
+import { Footer } from './Footer/Footer';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const MoviesPage = lazy(() => import('../pages/MoviesPage/MoviesPage'));
@@ -20,6 +21,7 @@ export const App = () => {
             <Route path="/movies" element={<MoviesPage />}></Route>
           </Routes>
         </Suspense>
+        <Footer />
       </ThemeProvider>
     </>
   );

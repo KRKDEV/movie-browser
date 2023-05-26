@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CssTextField } from 'utils/palette';
 import { AppBar, Box, Button, Stack, Toolbar, Typography } from '@mui/material';
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <header>
       <AppBar position="static">
@@ -43,5 +43,3 @@ const NavBar = () => {
     </header>
   );
 };
-
-export default NavBar;
