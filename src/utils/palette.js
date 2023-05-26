@@ -2,6 +2,7 @@ import { createTheme } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 import { styled } from '@mui/material/styles';
 import { TextField } from '@mui/material';
+import Paper from '@mui/material/Paper';
 
 export const theme = createTheme({
   palette: {
@@ -19,7 +20,7 @@ export const CssTextField = styled(TextField)({
     color: 'white',
   },
   '& label.Mui-focused': {
-    color: 'orange',
+    color: 'orangered',
   },
   '& .MuiInput-underline:after': {
     borderBottomColor: '#B2BAC2',
@@ -32,7 +33,15 @@ export const CssTextField = styled(TextField)({
       borderColor: 'white',
     },
     '&.Mui-focused fieldset': {
-      borderColor: 'orange',
+      borderColor: 'orangered',
     },
   },
 });
+
+export const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
