@@ -1,9 +1,12 @@
 import { Box, Container, Typography } from '@mui/material';
+import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import css from './HomePage.module.css';
 import { Loader } from 'components/Loader/Loader';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 const API_KEY = `5576770c01d63e1242c2c0a47f8d9a02`;
 const HomePage = () => {
   const API_URL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`;
@@ -12,6 +15,11 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [value, setValue] = React.useState('one');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   useEffect(() => {
     const fetchTrending = async () => {
       setIsLoading(true);
@@ -39,11 +47,28 @@ const HomePage = () => {
         <Loader />
       ) : (
         <Container
-          maxWidth
-          sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+          sx={{
+            minWidth: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '20px',
+          }}
         >
           <Box mt={6}>
             <Typography variant="h4">Trending today...</Typography>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              textColor="secondary"
+              indicatorColor="secondary"
+              aria-label="secondary tabs example"
+            >
+              <Tab value="one" label="What's new" />
+              <Tab value="two" label="Now trending" />
+              <Tab value="three" label="More" />
+            </Tabs>
           </Box>
           <ul className={css['trending__list']}>
             {trendingMovies.map(movie => (
