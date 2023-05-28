@@ -2,6 +2,7 @@ import TheatersIcon from '@mui/icons-material/Theaters';
 import { NavLink } from 'react-router-dom';
 import { CssTextField } from 'utils/palette';
 import { AppBar, Box, Stack, Toolbar, Typography } from '@mui/material';
+import css from './NavBar.module.css';
 
 export const NavBar = () => {
   return (
@@ -20,9 +21,13 @@ export const NavBar = () => {
               name="filter"
             />
           </Box>
-          <Stack direction="row" spacing={2}>
-            <NavLink to="/">Home </NavLink>
-            <NavLink to="/movies">Movies </NavLink>
+          <Stack direction="row" spacing={1}>
+            <NavLink to="/" className={css['navbar__link']}>
+              Home
+            </NavLink>
+            <NavLink to="/movies" className={css['navbar__link']}>
+              Movies
+            </NavLink>
           </Stack>
         </Toolbar>
       </AppBar>
