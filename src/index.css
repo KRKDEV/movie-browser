@@ -18,10 +18,22 @@ code {
 
 a:hover {
   font-weight: 700;
+  color: orangered;
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.active {
+  font-weight: 700;
+  color: orangered;
 }

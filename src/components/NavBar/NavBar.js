@@ -1,7 +1,7 @@
 import TheatersIcon from '@mui/icons-material/Theaters';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { CssTextField } from 'utils/palette';
-import { AppBar, Box, Button, Stack, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Stack, Toolbar, Typography } from '@mui/material';
 
 export const NavBar = () => {
   return (
@@ -21,22 +21,8 @@ export const NavBar = () => {
             />
           </Box>
           <Stack direction="row" spacing={2}>
-            <Button
-              variant="outlined"
-              color="secondary"
-              component={Link}
-              to="/"
-            >
-              Home
-            </Button>
-            <Button
-              variant="outlined"
-              color="secondary"
-              component={Link}
-              to="/movies"
-            >
-              Movies
-            </Button>
+            <NavLink to="/">Home </NavLink>
+            <NavLink to="/movies">Movies </NavLink>
           </Stack>
         </Toolbar>
       </AppBar>
